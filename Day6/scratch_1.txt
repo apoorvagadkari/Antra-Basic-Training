@@ -1,0 +1,66 @@
+1) In C#, there are six different combinations of access modifier keywords that control the visibility of types 
+and members. The public modifier allows access from anywhere, making it the most permissive. 
+The private modifier restricts access to within the same class only. 
+Protected makes the member accessible in the same class and in any derived classes. 
+Internal allows access within the same assembly but not from another assembly.
+ Protected internal is a combination that allows access from the same assembly or from derived classes in other 
+ assemblies. Lastly, private protected is the most restrictive combination—it allows access only within 
+ the same assembly and only from derived classes. 
+These access levels help enforce encapsulation and control how different parts of your code interact.
+
+2. Difference between static, const, and readonly
+static: Shared across all instances; belongs to the type, not an instance.
+const: Constant value known at compile time; must be initialized at declaration.
+readonly: Can only be assigned during declaration or in the constructor; value fixed after that.
+
+3. What does a constructor do?
+Initializes an object of a class — it sets up the initial state of the object.
+
+4. Why is the partial keyword useful?
+Allows a class or method to be split across multiple files — helpful for large codebases or auto-generated code.
+
+5. What is a tuple?
+A lightweight data structure to group multiple values of different types together (e.g., (int, string)).
+6. What does the record keyword do?
+Creates an immutable reference type with built-in value equality, ideal for data models.
+
+7. What does overloading and overriding mean?
+Overloading: Same method name, different parameters (compile-time polymorphism).
+Overriding: Replacing a base class method in a derived class (runtime polymorphism).
+
+8. Difference between a field and a property
+Field: A variable declared directly in a class.
+Property: Accessors (get/set) that control how a field is accessed.
+
+9. How to make a method parameter optional?
+Provide a default value in the method declaration:
+void Greet(string name = "Guest") { ... }
+
+10. What is an interface and how is it different from an abstract class?
+    An interface in C# defines a contract that a class or struct must follow, specifying a set of methods, 
+    properties, events, or indexers without providing any implementation. It's like saying, “Any class that 
+    implements this interface must do these things.” Unlike abstract classes, interfaces cannot contain 
+    fields or concrete (implemented) methods—though newer versions of C# allow default implementations in 
+    some cases. The key difference between an interface and an abstract class is that a class can implement
+    multiple interfaces, but it can inherit from only one abstract or base class. Abstract classes can 
+    contain both abstract methods (no body) and fully implemented methods, as well as fields and constructors, which interfaces cannot.
+    
+    
+ 11.What accessibility level are members of an interface?
+     All members of an interface in C# are implicitly public, and they cannot 
+     have any other access modifier. You don’t even need to write public—it’s assumed. 
+     When a class implements an interface, it must provide public implementations of all the interface’s members.
+     If it doesn’t,the compiler will throw an error.
+     
+  12.   True
+  13    True
+  14    True
+  15    False
+  16    True
+  17    True
+  18    True
+  19    False
+  20    False
+  21    True
+  22    False
+  23    True
