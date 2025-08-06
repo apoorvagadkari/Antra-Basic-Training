@@ -1,0 +1,164 @@
+1. What type would you choose for the following “numbers”?
+    A person’s telephone number → string
+    Because it may include symbols like +, -, and shouldn't be used for calculations
+    
+    A person’s height → float or double
+    Needs decimal precision (e.g., 5.9 feet)
+    
+    A person’s age → int
+    Always a whole number
+    
+    A person’s gender (Male, Female, Prefer Not To Answer) → enum or string
+    Use enum for fixed values; string if it's more flexible
+    
+    A person’s salary → decimal
+    Best suited for currency due to high precision
+    
+    A book’s ISBN → string
+    It’s an identifier, not a value to calculate with
+    
+    A book’s price → decimal
+    Also currency, so we want to avoid rounding issues
+    
+    A book’s shipping weight → float or double
+    Usually a decimal value (like 1.25 kg)
+    
+    A country’s population → long
+    Population numbers can exceed int range
+    
+    The number of stars in the universe → double or BigInteger
+    Extremely large number; double for estimation, BigInteger for exact values
+    
+    Number of employees in UK small/medium businesses (up to ~50,000) → int
+    50,000 is well within the int range
+    
+2.  Value Types
+   Stored directly in stack memory
+   Hold actual data
+   Each variable has its own copy of the data
+   Examples: int, float, char, bool, struct
+   
+   Reference Types
+   Stored in heap memory
+   Variable stores a reference (address) to the actual data
+   Multiple variables can point to the same object
+   Examples: class, string, object, array
+   
+    Boxing
+   Converting a value type into a reference type
+   Example:
+   int x = 5;
+   object obj = x;  // Boxing: int → object
+    Unboxing
+   Extracting the value type from an object
+   Requires explicit casting
+   Example:
+   object obj = 5;
+   int x = (int)obj;  // Unboxing: object → int
+   
+   
+   
+3. What are Managed and Unmanaged Resources in .NET?
+   Managed Resources
+   Handled automatically by the .NET runtime (CLR)
+   Memory allocation, garbage collection, etc.
+   Examples: strings, arrays, classes, .NET objects
+   
+   Unmanaged Resources
+   Not automatically managed by .NET
+   Require manual cleanup
+   Examples: file handles, network connections, database connections, OS handles
+   Use IDisposable and Dispose() to release these properly
+   
+   
+4. What’s the Purpose of Garbage Collector in .NET?
+   Automatically frees memory used by unused/expired managed objects
+   Helps prevent memory leaks
+   Runs in the background and cleans up objects no longer referenced
+   Makes memory management easier and safer (you don’t manually delete objects)
+   
+   
+   
+Controlling Flow and Converting Types
+  1. What happens when you divide an int variable by 0?
+     You get a runtime exception: DivideByZeroException.
+     
+  2. What happens when you divide a double variable by 0?
+     You don’t get an exception. Instead:
+     positive / 0.0 → Infinity
+     negative / 0.0 → -Infinity
+     
+     0.0 / 0.0 → NaN (Not a Number)
+  3. What happens when you overflow an int variable?
+     In release mode: It wraps around (unexpected value).
+     In debug mode: You get an OverflowException if overflow checking is enabled.
+     
+  4. Difference between x = y++; and x = ++y;
+     x = y++ → Assigns y to x then increments y
+     x = ++y → Increments y then assigns it to x
+     
+  5. Difference between break, continue, and return in loops
+     break: exits the entire loop
+     continue: skips the current iteration and goes to the next
+     return: exits the entire method
+     
+  6. Three parts of a for loop and which are required
+     for (initialization; condition; afterthought) { }
+     Only the semicolons are required — everything else is optional.
+     
+  7. Difference between = and ==
+     = is assignment
+     == is comparison
+     
+  8. Does this compile? for ( ; true; ) ;
+     Yes! It’s a valid infinite loop.
+     
+  9. What does _ represent in a switch expression?
+     A default case (like default: in traditional switch blocks)
+     
+  10. What interface must an object implement for foreach?
+     IEnumerable (or IEnumerable<T> for generics)
+     
+     
+     
+     ARRAYS AND STRINGS
+     
+     1. When to use String vs. StringBuilder in C#?
+     
+         Use String when:
+         You’re working with a small number of string operations (concatenation, formatting, etc.).
+         Performance isn’t a concern.
+         Strings are mostly immutable (not changing).
+         Use StringBuilder when:
+         You’re performing many modifications to a string (especially in loops).
+         You want better performance by avoiding repeated memory allocations (since strings are immutable and every change creates a new one).
+    
+     2. What is the base class for all arrays in C#?
+        The base class is System.Array.
+        Even though you create arrays like int[] or string[], under the hood, they're all derived from System.Array.
+        
+     3. How do you sort an array in C#?
+        Use the Array.Sort() method.
+        
+        
+     4. What property of an array object can be used to get the total number of elements in an array?
+        Use the .Length property.
+        Example:
+        int[] arr = { 10, 20, 30 };
+        Console.WriteLine(arr.Length);  // Output: 3
+        
+     5. Can you store multiple data types in System.Array?
+        Yes, but only if the array is of type object[].
+       
+       
+     6. What’s the difference between Array.CopyTo() and Array.Clone()?
+        CopyTo():
+        Copies elements from the current array into another existing array.
+        You must create the destination array first.
+        Syntax: source.CopyTo(destination, startIndex);
+        Clone():
+        Creates a new array that’s a shallow copy of the original.
+        Returns object, so you usually cast it back.
+        Example:
+        int[] original = { 1, 2, 3 };
+        int[] clone = (int[])original.Clone();  // Creates a new array
