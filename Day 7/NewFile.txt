@@ -1,0 +1,26 @@
+All the answers to the First question
+
+1.Generics let you write one piece of code that can work with any type while still keeping type
+safety at compile time. A parameter T is written to 
+Generics solves the problem of writing duplicate, type-specific code by letting you create reusable,
+ type-safe methods and classes that work with any data type.
+ 
+ 2.We can create a list of strings by the following way:
+ var words = new List<string>();
+
+3.Dictionary generic type parameters: 2 (Dictionary<TKey, TValue>).
+
+4.False
+
+5. Method to add items to a List: Add (also AddRange for many).
+
+6. Two methods that remove items from a List: Remove(value) and RemoveAt(index) (also RemoveAll, Clear).
+
+7.class Box<T> { /* ... */ }
+
+8.False
+
+9. True
+
+10.True
+
